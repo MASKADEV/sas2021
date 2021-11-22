@@ -27,52 +27,52 @@ void menuList()
     char choice5[] = "\n5. Fidelisation";
     char choice6[] = "\n6. Quitter lapplication";
     printf("\n\n");
-    for(int x=0; title[x]!=NULL; x++)
+    for(int x=0; title[x]!='\0'; x++)
    {
      printf("%c",title[x]);
-      for(double y = 0; y <= 1000000; y++)
+      for(double y = 0; y <= 8000000; y++)
       {
       }
    }
-    for(int x=0; choice1[x]!=NULL; x++)
+    for(int x=0; choice1[x]!='\0'; x++)
    {
      printf("%c",choice1[x]);
-      for(double y = 0; y<=500000; y++)
+      for(double y = 0; y<=4500000; y++)
       {
       }
    }
-    for(int x=0; choice2[x]!=NULL; x++)
+    for(int x=0; choice2[x]!='\0'; x++)
    {
      printf("%c",choice2[x]);
-      for(double y = 0; y<=500000; y++)
+      for(double y = 0; y<=4500000; y++)
       {
       }
    }
-    for(int x=0; choice3[x]!=NULL; x++)
+    for(int x=0; choice3[x]!='\0'; x++)
    {
      printf("%c",choice3[x]);
-      for(double y = 0; y<=500000; y++)
+      for(double y = 0; y<=4500000; y++)
       {
       }
    }
-    for(int x=0; choice4[x]!=NULL; x++)
+    for(int x=0; choice4[x]!='\0'; x++)
    {
      printf("%c",choice4[x]);
-      for(double y = 0; y<=500000; y++)
+      for(double y = 0; y<=4500000; y++)
       {
       }
    }
-    for(int x=0; choice5[x]!=NULL; x++)
+    for(int x=0; choice5[x]!='\0'; x++)
    {
      printf("%c",choice5[x]);
-      for(double y = 0; y<=500000; y++)
+      for(double y = 0; y<=4500000; y++)
       {
       }
    }
-    for(int x=0; choice6[x]!=NULL; x++)
+    for(int x=0; choice6[x]!='\0'; x++)
    {
      printf("%c",choice6[x]);
-      for(double y = 0; y<=500000; y++)
+      for(double y = 0; y<=4500000; y++)
       {
       }
    }
