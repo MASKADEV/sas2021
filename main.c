@@ -10,7 +10,7 @@ typedef struct clients
     char cin[40];
     char nom[40];
     char prenom[40];
-    int montant;
+    float montant;
 } clients;
 
 clients client[];
@@ -18,13 +18,65 @@ clients client[];
 //Main Screen
 void menuList()
 {
-    printf("\n\n\t--------------- Menu ---------------");
-    printf("\n\n\n1. Introduire un compte bancaire");
-    printf("\n2. Introduire plusieurs comptes bancaires");
-    printf("\n3. Operations");
-    printf("\n4. Affichage");
-    printf("\n5. Fidélisation");
-    printf("\n6. Quitter l’application");
+    system("cls");
+    char title[]= "\n\n\t--------------- Menu ---------------";
+    char choice1[] = "\n\n\n1. Introduire un compte bancaire";
+    char choice2[] = "\n2. Introduire plusieurs comptes bancaires";
+    char choice3[] = "\n3. Operations";
+    char choice4[] = "\n4. Affichage";
+    char choice5[] = "\n5. Fidelisation";
+    char choice6[] = "\n6. Quitter lapplication";
+    printf("\n\n");
+    for(int x=0; title[x]!=NULL; x++)
+   {
+     printf("%c",title[x]);
+      for(double y = 0; y <= 1000000; y++)
+      {
+      }
+   }
+    for(int x=0; choice1[x]!=NULL; x++)
+   {
+     printf("%c",choice1[x]);
+      for(double y = 0; y<=500000; y++)
+      {
+      }
+   }
+    for(int x=0; choice2[x]!=NULL; x++)
+   {
+     printf("%c",choice2[x]);
+      for(double y = 0; y<=500000; y++)
+      {
+      }
+   }
+    for(int x=0; choice3[x]!=NULL; x++)
+   {
+     printf("%c",choice3[x]);
+      for(double y = 0; y<=500000; y++)
+      {
+      }
+   }
+    for(int x=0; choice4[x]!=NULL; x++)
+   {
+     printf("%c",choice4[x]);
+      for(double y = 0; y<=500000; y++)
+      {
+      }
+   }
+    for(int x=0; choice5[x]!=NULL; x++)
+   {
+     printf("%c",choice5[x]);
+      for(double y = 0; y<=500000; y++)
+      {
+      }
+   }
+    for(int x=0; choice6[x]!=NULL; x++)
+   {
+     printf("%c",choice6[x]);
+      for(double y = 0; y<=500000; y++)
+      {
+      }
+   }
+
 }
 
 //add clients Screen
@@ -35,38 +87,32 @@ void addClients(int option)
     switch (option)
     {
     case 1:
-        printf("\nplease enter client name:\t");
+        system("cls");
+        printf("\nveuillez entrer le nom du client:\t");
         scanf("%s", client[clientsIndex].nom);
-        printf("\nplease enter client prenom:\t");
+        printf("\nveuillez saisir le prenom du client:\t");
         scanf("%s", client[clientsIndex].prenom);
-        printf("\nplease enter client ID:\t");
+        printf("\nveuillez saisir votre identifiant client:\t");
         scanf("%s", client[clientsIndex].cin);
-        printf("\nplease enter client montant:\t");
-        scanf("%d", &client[clientsIndex].montant);
+        printf("\nveuillez entrer le montant du client (DH):\t");
+        scanf("%f", &client[clientsIndex].montant);
         clientsIndex++;
-        for (int i = 0; i < clientsIndex; i++)
-        {
-            printf("\nnom:\t%s", client[i].nom);
-        }
         break;
     case 2:
-        printf("how much clients you want to add:\t");
+        system("cls");
+        printf("combien de clients vous voulez ajouter:\t");
         scanf("%d", &clientsNumber);
         for (int i = 0; i < clientsNumber; i++)
         {
-            printf("\nplease enter client name:\t");
+            printf("\nveuillez entrer le nom du client:\t");
             scanf("%s", client[clientsIndex].nom);
-            printf("\nplease enter client prenom:\t");
+            printf("\nveuillez saisir le prenom du client:\t");
             scanf("%s", client[clientsIndex].prenom);
-            printf("\nplease enter client ID:\t");
+            printf("\nveuillez saisir votre identifiant client:\t");
             scanf("%s", client[clientsIndex].cin);
-            printf("\nplease enter client montant:\t");
-            scanf("%d", &client[clientsIndex].montant);
+            printf("\nveuillez entrer le montant du client (DH):\t");
+            scanf("%f", &client[clientsIndex].montant);
             clientsIndex++;
-        }
-        for (int i = 0; i < clientsIndex; i++)
-        {
-            printf("\nnom:\t%s", client[i].nom);
         }
     default:
         break;
@@ -79,26 +125,26 @@ void operations()
     int currentIndex, choice, retraitmonant;
     char currentID[40];
 
-    // system("clear");
+    system("cls");
     printf("\n\n\t-------- Operations ----------");
     printf("\n\n1. Retrait");
     printf("\n2. Deposer");
-    printf("\n\nplease select your preffered option:\t");
+    printf("\n\nveuillez selectionner votre option preferee:\t");
     scanf("%d", &choice);
     switch (choice)
     {
     case 1:
-        // system("clear");
+        system("cls");
         printf("\n\n\t-------- Retrait operation ----------");
-        printf("\n\n\n\nplease enter client id:\t");
+        printf("\n\n\n\nVeuillez saisir CIN du client:\t");
         scanf("%s", currentID);
         for (int i = 0; i <= clientsIndex; i++)
         {
             if (strcmp(client[i].cin, currentID) == 0)
             {
                 currentIndex = i;
-                printf("\ncurrent balnce:%d", client[currentIndex].montant);
-                printf("\nplease enter the amount you want to widthraw:\t");
+                printf("\nSolde actuel:%.2f DH", client[currentIndex].montant);
+                printf("\nveuillez saisir le montant que vous souhaitez retirer:\t");
                 scanf("%d", &retraitmonant);
                 if (retraitmonant <= client[currentIndex].montant)
                 {
@@ -107,26 +153,28 @@ void operations()
                 return;
             }
         }
-        printf("id not found please try anothe one!");
+        printf("CIN introuvable s'il vous plaît essayez-en un autre!");
+        getch();
         break;
     case 2:
-        // system("clear");
+        system("cls");
         printf("\n\n\t-------- Deposer operation ----------");
-        printf("\n\n\n\nplease enter client id:\t");
+        printf("\n\n\n\nsil vous plaît entrer CIN du client:\t");
         scanf("%s", currentID);
         for (int i = 0; i <= clientsIndex; i++)
         {
             if (strcmp(client[i].cin, currentID) == 0)
             {
                 currentIndex = i;
-                printf("\ncurrent balnce:%d", client[currentIndex].montant);
-                printf("\nplease enter the amount you want to Deposer:\t");
+                printf("\nSolde actuel:%.2f DH", client[currentIndex].montant);
+                printf("\nveuillez saisir le montant que vous souhaitez deposer:\t");
                 scanf("%d", &retraitmonant);
                 client[currentIndex].montant += retraitmonant;
                 return;
             }
         }
-        printf("id not found please try anothe one!");
+        printf("CIN introuvable s'il vous plaît essayez-en un autre!");
+        getch();
         break;
     default:
         break;
@@ -140,49 +188,28 @@ void affichage()
     int index, j;
     char cin[40];
     clients clientTemp;
-    // system("clear");
+    char minstr[50];
+
+    system("cls");
     printf("\n\n\t-------- Operations ----------");
     printf("\n\n1. Par Ordre Ascendant");
     printf("\n2. Par Ordre Descendant");
-    printf("\n3. Par Ordre Ascendant (montant superieur)");
-    printf("\n4. Par Ordre Descendant (montant superieur)");
+    printf("\n3. Par Ordre Ascendant (par montant)");
+    printf("\n4. Par Ordre Descendant (par montant)");
     printf("\n5. Recherche par CIN");
 
-    printf("\n\nplease select your preffered choice:\t");
+    printf("\n\nveuillez selectionner votre choix prefere:\t");
     scanf("%d", &choice);
     switch (choice)
     {
     case 1:
-        for (int i = 0; i < 255; i++)
+        for(int i = 0; i < clientsIndex; i++)
         {
-            for (int j = 0; j < clientsIndex; j++)
+            int index = i;
+            strcpy(minstr, client[i].nom);
+            for(j = i + 1; j < clientsIndex; j++)
             {
-                if (client[j].nom[0] == i)
-                {
-                    printf("\n%s", client[j].nom);
-                }
-            }
-        }
-        break;
-    case 2:
-        for (int i = 254; i >= 0; i--)
-        {
-            for (int j = 0; j < clientsIndex; j++)
-            {
-                if (client[j].nom[0] == i)
-                {
-                    printf("\n%s", client[j].nom);
-                }
-            }
-        }
-        break;
-    case 3:
-        for (int i = 0; i <= clientsIndex; i++)
-        {
-            index = i;
-            for (j = i + 1; j < clientsIndex; j++)
-            {
-                if (client[index].montant < client[j].montant)
+                if(strcmp(minstr, client[j].nom) < 0)
                 {
                     index = j;
                 }
@@ -196,15 +223,45 @@ void affichage()
         }
         for (int k = 0; k < clientsIndex; k++)
         {
-            printf("\n\nclient %d infos:", k + 1);
-            printf("\nnom:\t%s", client[k].nom);
-            printf("\nprenom:\t%s", client[k].prenom);
-            printf("\nCIN:\t%s", client[k].cin);
-            printf("\nmontant:\t%d", client[k].montant);
+            printf("\n\ncliente %d infos:", k + 1);
+            printf("\nnom: %s", client[k].nom);
+            printf("\tprenom: %s", client[k].prenom);
+            printf("\tCIN: %s", client[k].cin);
+            printf("\tmontant: %.2f DH", client[k].montant);
         }
+        getch();
         break;
-    case 4:
-        for (int i = 0; i < clientsIndex; i++)
+    case 2:
+        for(int i = 0; i < clientsIndex; i++)
+        {
+            int index = i;
+            strcpy(minstr, client[i].nom);
+            for(j = i + 1; j < clientsIndex; j++)
+            {
+                if(strcmp(minstr, client[j].nom) > 0)
+                {
+                    index = j;
+                }
+            }
+            if (index != i)
+            {
+                clientTemp = client[i];
+                client[i] = client[index];
+                client[index] = clientTemp;
+            }
+        }
+        for (int k = 0; k < clientsIndex; k++)
+        {
+            printf("\n\ncliente %d infos:", k + 1);
+            printf("\nnom: %s", client[k].nom);
+            printf("\tprenom: %s", client[k].prenom);
+            printf("\tCIN: %s", client[k].cin);
+            printf("\tmontant: %.2f DH", client[k].montant);
+        }
+        getch();
+        break;
+    case 3:
+        for (int i = 0; i <= clientsIndex; i++)
         {
             index = i;
             for (j = i + 1; j < clientsIndex; j++)
@@ -223,26 +280,57 @@ void affichage()
         }
         for (int k = 0; k < clientsIndex; k++)
         {
-            printf("\n\nclient %d infos:", k + 1);
-            printf("\nnom:\t%s", client[k].nom);
-            printf("\nprenom:\t%s", client[k].prenom);
-            printf("\nCIN:\t%s", client[k].cin);
-            printf("\nmontant:\t%d", client[k].montant);
+            
+            printf("\n\ncliente %d infos:", k + 1);
+            printf("\nnom: %s", client[k].nom);
+            printf("\tprenom: %s", client[k].prenom);
+            printf("\tCIN: %s", client[k].cin);
+            printf("\tmontant: %.2f DH", client[k].montant);
         }
+        getch();
+        break;
+    case 4:
+        for (int i = 0; i < clientsIndex; i++)
+        {
+            index = i;
+            for (j = i + 1; j < clientsIndex; j++)
+            {
+                if (client[index].montant < client[j].montant)
+                {
+                    index = j;
+                }
+            }
+            if (index != i)
+            {
+                clientTemp = client[i];
+                client[i] = client[index];
+                client[index] = clientTemp;
+            }
+        }
+        for (int k = 0; k < clientsIndex; k++)
+        {
+            printf("\n\ncliente %d infos:", k + 1);
+            printf("\nnom: %s", client[k].nom);
+            printf("\tprenom: %s", client[k].prenom);
+            printf("\tCIN: %s", client[k].cin);
+            printf("\tmontant: %.2f DH", client[k].montant);
+        }
+        getch();
         break;
     case 5:
-        printf("\n\n\tplease enter CIN:\t");
+        printf("\n\n\tsil vous plait entrer CIN:\t");
         scanf("%s", cin);
         for (int i = 0; i < clientsIndex; i++)
         {
             if (strcmp(client[i].cin, cin) == 0)
             {
-                system("clear");
-                printf("\n\nclient info:");
+                system("cls");
+                printf("\n\ncliente info:");
                 printf("\nnom:\t%s", client[i].nom);
                 printf("\nprenom:\t%s", client[i].prenom);
                 printf("\nCIN:\t%s", client[i].cin);
-                printf("\nmontant:\t%d", client[i].montant);
+                printf("\nmontant:\t%.2f DH", client[i].montant);
+                getch();
             }
         }
     default:
@@ -278,29 +366,25 @@ void fedilisation()
     }
     for (int k = 0; k < clientsIndex; k++)
     {
-        if (k == 0 || k == 1 || k == 2)
+        if (k < 3)
         {
-            printf("\n\nclient %d infos:", k + 1);
-            printf("\nnom:\t%s", client[k].nom);
-            printf("\nprenom:\t%s", client[k].prenom);
-            printf("\nCIN:\t%s", client[k].cin);
-            printf("\nmontant:\t%d", client[k].montant);
-        }
-        if (k >= 3)
-        {
-            return;
+            printf("\n\ncliente %d infos:", k + 1);
+            printf("\nnom: %s", client[k].nom);
+            printf("\tprenom: %s", client[k].prenom);
+            printf("\tCIN: %s", client[k].cin);
+            printf("\tmontant: %.2f DH", client[k].montant);
         }
     }
 }
 
 int main()
 {
-    system("clear");
+    system("cls");
     while (1)
     {
         int choice;
         menuList();
-        printf("\n\nplease select your preffered option:\t");
+        printf("\n\nveuillez selectionner votre option preferee:\t");
         scanf("%d", &choice);
         switch (choice)
         {
@@ -324,7 +408,7 @@ int main()
         case 7:
             for (int i = 0; i < clientsIndex; i++)
             {
-                printf("\nclients nom:\t%s", client[i].nom);
+                printf("\ncliente nom:\t%s", client[i].nom);
                 printf("\n%d", client[i].montant);
             }
         default:
