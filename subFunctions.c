@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 
 void generateInvoice (char option[40], char nom[50], char prenom[50], char cin[50], float montant){

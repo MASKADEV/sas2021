@@ -16,7 +16,6 @@ typedef struct clients
 
 clients client[];
 
-
 //Main Screen
 void menuList()
 {
@@ -167,7 +166,7 @@ void operations()
     case 2:
         system("cls");
         printf("\n\n\t-------- Deposer operation ----------");
-        printf("\n\n\n\nsil vous plaît entrer CIN du client:\t");
+        printf("\n\n\n\nsil vous plait entrer CIN du client:\t");
         scanf("%s", currentID);
         for (int i = 0; i <= clientsIndex; i++)
         {
@@ -440,21 +439,10 @@ int main()
             break;
         case 6:
             exit(0);
-        case 7:
-            for (int k = 0; k < clientsIndex; k++)
-            {
-                printf("\n\ncliente [%d] infos:", k + 1);
-                printf("\n -> Nom: %s", client[k].nom);
-                printf("\n -> Prenom: %s", client[k].prenom);
-                printf("\n -> CIN: %s", client[k].cin);
-                printf("\n -> Montant: %.2f DH", client[k].montant);
-            }
-            printf("\n");
-            system("pause");
+            break;
         default:
             break;
         }
     }
-
     return 0;
 }
