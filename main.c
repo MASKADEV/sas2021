@@ -403,7 +403,7 @@ void fedilisation()
                 printf("\n-> Montant: %.2f DH", client[k].montant);
             }
         }
-        printf("\n\nAppuyez sur n'importe quelle touche pour continuer\t");
+        printf("\n\n");
         system("pause");
     }else {
         system("cls");
