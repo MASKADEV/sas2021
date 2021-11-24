@@ -152,16 +152,17 @@ void operations()
                 if (cutomAmount <= client[currentIndex].montant)
                 {
                     client[currentIndex].montant -= cutomAmount;
+                    system("cls");
                     generateInvoice("Retrait",client[i].nom, client[i].prenom, client[i].cin, client[i].montant);
                     printf("\n\n");
-                    getch();
+                    system("pause");
                 }
                 return;
             }
         }
         printf("CIN introuvable sil vous plait essayez-en un autre!");
         printf("\n");
-        getch();
+        system("pause");
         break;
     case 2:
         system("cls");
@@ -177,15 +178,16 @@ void operations()
                 printf("\nveuillez saisir le montant que vous souhaitez deposer:\t");
                 scanf("%d", &cutomAmount);
                 client[currentIndex].montant += cutomAmount;
+                system("cls");
                 generateInvoice("Deposer",client[i].nom, client[i].prenom, client[i].cin, client[i].montant);
                 printf("\n\n");
-                getch();
+                system("pause");
                 return;
             }
         }
         printf("CIN introuvable sil vous plait essayez-en un autre!");
         printf("\n");
-        getch();
+        system("pause");
         break;
     default:
         break;
@@ -243,7 +245,7 @@ void affichage()
                 printf("\n -> Montant: %.2f DH", client[k].montant);
             }
             printf("\n");
-            getch();
+            system("pause");
             break;
         case 2:
             for(int i = 0; i < clientsIndex; i++)
@@ -273,7 +275,7 @@ void affichage()
                 printf("\n -> Montant: %.2f DH", client[k].montant);
             }
             printf("\n");
-            getch();
+            system("pause");
             break;
         case 3:
             for (int i = 0; i <= clientsIndex; i++)
@@ -303,7 +305,7 @@ void affichage()
                 printf("\n -> Montant: %.2f DH", client[k].montant);
             }
             printf("\n");
-            getch();
+            system("pause");
             break;
         case 4:
             for (int i = 0; i < clientsIndex; i++)
@@ -332,7 +334,7 @@ void affichage()
                 printf("\n -> Montant: %.2f DH", client[k].montant);
             }
             printf("\n");
-            getch();
+            system("pause");
             break;
         case 5:
             printf("\n\n\tsil vous plait entrer CIN:\t");
@@ -348,7 +350,7 @@ void affichage()
                     printf("\n-> CIN:\t%s", client[i].cin);
                     printf("\n-> Montant:\t%.2f DH", client[i].montant);
                     printf("\n");
-                    getch();
+                    system("pause");
                 }
             }
         default:
@@ -357,7 +359,7 @@ void affichage()
     }else {
         printf("\n\n\tchoix echoue sil vous plait essayez un numero de la liste");
         printf("\n");
-        getch();
+        system("pause");
     }
 }
 
@@ -402,17 +404,17 @@ void fedilisation()
             }
         }
         printf("\n\nAppuyez sur n'importe quelle touche pour continuer\t");
-        getch();
+        system("pause");
     }else {
         system("cls");
         printf("\n\n\tpas de client trouve !\t");
-        getch();
+        system("pause");
     }
 }
 
 int main()
 {
-    system("cls");
+    // system("cls");
     while (1)
     {
         int choice;
@@ -439,11 +441,16 @@ int main()
         case 6:
             exit(0);
         case 7:
-            for (int i = 0; i < clientsIndex; i++)
+            for (int k = 0; k < clientsIndex; k++)
             {
-                printf("\ncliente nom:\t%s", client[i].nom);
-                printf("\n%d", client[i].montant);
+                printf("\n\ncliente [%d] infos:", k + 1);
+                printf("\n -> Nom: %s", client[k].nom);
+                printf("\n -> Prenom: %s", client[k].prenom);
+                printf("\n -> CIN: %s", client[k].cin);
+                printf("\n -> Montant: %.2f DH", client[k].montant);
             }
+            printf("\n");
+            system("pause");
         default:
             break;
         }
